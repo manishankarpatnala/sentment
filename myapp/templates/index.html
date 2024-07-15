@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sentiment Analysis</title>
+</head>
+<body>
+    <h1>Sentiment Analysis</h1>
+    <form method="post" action="{% url 'analyze_sentiment' %}">
+        {% csrf_token %}
+        <label for="review">Enter your review:</label>
+        <textarea id="review" name="review" rows="4" cols="50"></textarea><br>
+        <button type="submit">Analyze</button>
+<!--        <textarea name="text" rows="4" cols="50"></textarea><br>-->
+<!--        <input type="submit" value="Analyze">-->
+
+    {% if sentiment %}
+        <h2>Result:</h2>
+        <p>Sentiment: {{ sentiment }}</p>
+    {% endif %}
+    </form>
+</body>
+</html>
